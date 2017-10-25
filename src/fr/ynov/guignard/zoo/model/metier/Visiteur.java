@@ -1,5 +1,7 @@
 package fr.ynov.guignard.zoo.model.metier;
 
+import fr.ynov.guignard.zoo.model.technique.VisiteurException;
+
 public class Visiteur implements Mangeable {
 	private static int nbVisiteur;
 
@@ -8,23 +10,23 @@ public class Visiteur implements Mangeable {
 		return 60;
 	}
 
-	public static Visiteur addVisiteur(Visiteur visiteur){
+	public static Visiteur addVisiteur(Visiteur visiteur) throws VisiteurException {
 		if(nbVisiteur <= 10){
 			nbVisiteur++;
 			return new Visiteur();
 		}
-		else{
-			return null;
+		else {
+			throw new VisiteurException();
 		}
 	}
 
-	public static Visiteur withdrawVisiteur(){
+	public static Visiteur withdrawVisiteur() throws VisiteurException {
 		if(nbVisiteur > 0){
-			nbVisiteur++;
-			return new Visiteur();
+			nbVisiteur--;
+			return null;
 		}
 		else{
-			return null;
+			throw new VisiteurException();
 		}
 	}
 

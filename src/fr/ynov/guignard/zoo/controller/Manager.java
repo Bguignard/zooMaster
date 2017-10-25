@@ -3,8 +3,10 @@ package fr.ynov.guignard.zoo.controller;
 import fr.ynov.guignard.zoo.model.metier.*;
 import fr.ynov.guignard.zoo.model.technique.BeurkException;
 import fr.ynov.guignard.zoo.model.technique.OccupantException;
+import fr.ynov.guignard.zoo.model.technique.VisiteurException;
 import fr.ynov.guignard.zoo.service.CagePojo;
 import fr.ynov.guignard.zoo.stockage.DaoFactory;
+import fr.ynov.guignard.zoo.stockage.DaoMysql;
 
 import java.util.List;
 import java.util.Vector;
@@ -13,12 +15,20 @@ public final class Manager {
     private static Manager ourInstance = new Manager();
     private Vector<Cage> lesCages;
     private Visiteur[] lesVisiteurs;
+    public static DaoMysql mysql;
 
 
     private Manager() {
         lesCages = new Vector<>();
         lesVisiteurs = new Visiteur[10];
+        mysql = new DaoMysql();
         init();
+    }
+    public void addVisiteur(Visiteur visiteur) throws VisiteurException {
+        lesVisiteurs[lesVisiteurs.length] = visiteur.addVisiteur(visiteur);
+    }
+    public void withdrawVisiteur() throws VisiteurException {
+        lesVisiteurs[lesVisiteurs.length-1] = Visiteur.withdrawVisiteur();
     }
     public static Manager getInstance() {
         return ourInstance;
