@@ -27,4 +27,7 @@ public class DaoMysql {
     public ResultSet select(String request) throws SQLException {
         return this.connect().executeQuery(request);
     }
+    public void updateDelete(String request) throws SQLException {
+       this.connect().executeQuery(request);
+    }
 }
