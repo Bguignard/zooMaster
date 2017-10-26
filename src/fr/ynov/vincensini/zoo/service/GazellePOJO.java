@@ -1,12 +1,18 @@
 package fr.ynov.vincensini.zoo.service;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
+@Entity
+@Table(name="gazelle")
 public class GazellePOJO implements Serializable{
 /**
 	 * 
 	 */
 private static final long serialVersionUID = 1L;
+@Id
 private int id;
 private int idAnimal;
 private int lgCornes;
