@@ -12,6 +12,7 @@ import fr.ynov.vincensini.zoo.modele.metier.Singe;
 import fr.ynov.vincensini.zoo.modele.metier.Visiteur;
 import fr.ynov.vincensini.zoo.modele.technique.BeurkException;
 import fr.ynov.vincensini.zoo.modele.technique.CageException;
+import fr.ynov.vincensini.zoo.modele.technique.CageManagee;
 import fr.ynov.vincensini.zoo.modele.technique.PorteException;
 import fr.ynov.vincensini.zoo.service.CagePOJO;
 import fr.ynov.vincensini.zoo.stockage.DaoFactory;
@@ -19,7 +20,7 @@ import fr.ynov.vincensini.zoo.utilitaire.Conversion;
 
 public final class Manager {
 	private static Manager instance = new Manager();
-	private Vector<Cage> lesCages;
+	private Vector<CageManagee> lesCages;
 	private Visiteur[] lesVisiteurs;
 	
 	private Manager()
@@ -34,29 +35,29 @@ public final class Manager {
 		List<CagePOJO> tmp = null;
 		tmp = DaoFactory.getInstance().getDao().lireTous();
 		for (CagePOJO cp : tmp) {
-			lesCages.add(Conversion.pojoToCage(cp));
+			lesCages.add(new CageManagee(cp, DaoFactory.getInstance().getDao()));
 		}
 	}
 	public List<String> getAnimaux()
 	{
 		List<String> ret =null;
 		ret = new Vector<>();
-		for (Cage a : lesCages) {
+		for (CageManagee a : lesCages) {
 			ret.add(a.toString());
 		}
 		return ret;
 	}
 	public void nourrir ()
 	{
-		for (Cage c : lesCages) {
-			if(c.getOccupant() != null) {
-				c.getOccupant().manger();
+		for (CageManagee c : lesCages) {
+			if(c.estPleine()) {
+				c.nourrir();
 			}
 		}
 	}
 	public void devorer(int mangeur, int mange) throws BeurkException, PorteException, CageException {
 		Mangeable tmp = null;
-		if(lesCages.get(mangeur).getOccupant() !=null)
+		if(lesCages.get(mangeur).estPleine())
 		{
 				lesCages.get(mange).ouvrir();
 				if(lesCages.get(mange).getOccupant() instanceof Mangeable)
@@ -74,7 +75,7 @@ public final class Manager {
 		}
 		else
 		{
-			throw new CageException("La cage N° "+mangeur+" est vide!");
+			throw new CageException("La cage N "+mangeur+" est vide!");
 		}
 	}	
 	
