@@ -5,14 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import fr.ynov.guignard.zoo.model.metier.Lion;
-import fr.ynov.guignard.zoo.model.metier.Visiteur;
+import fr.ynov.vincensini.zoo.modele.metier.Lion;
+import fr.ynov.vincensini.zoo.modele.metier.Visiteur;
 
 class LionTests {
 private Lion l;
 	@BeforeEach
 	void setUp() throws Exception {
-		l = new Lion("Lï¿½o", 12, 143);
+		l = new Lion("Léo", 12, 143);
 	}
 
 	@Test

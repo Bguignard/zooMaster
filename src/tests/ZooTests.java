@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import fr.ynov.guignard.zoo.model.technique.BeurkException;
-import fr.ynov.guignard.zoo.view.Zoo;
+import fr.ynov.vincensini.zoo.modele.technique.BeurkException;
+import fr.ynov.vincensini.zoo.vue.Zoo;
 
 class ZooTests {
 private Zoo z;

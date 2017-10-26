@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>10</y>
+      <w>280</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>fr.ynov.vincensini.zoo.vue::Zoo
+type=actclass
+--
+
+--
++afficher()
++nourrir()
++devorer(mangeur:int, mange:int):boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>350</x>
+      <y>170</y>
+      <w>170</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Individu
+--
+
+--
++manger()
++dormir()
++manger(m:Mangeable)
++crier():String
++sauter()
++courrir()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>350</x>
+      <y>420</y>
+      <w>200</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;javaBean&gt;&gt;
+/Animal/
+--
+-age:int
+-nom:String
+-poids:double
+--
++manger(m:Mangeable)
++crier():String
++sauter()
++courrir()
+&lt;&lt;override&gt;&gt;+toString():String
+#finalize()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>310</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>60</y>
+      <w>330</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+r2=-lesCages
+m2=1..n</panel_attributes>
+    <additional_attributes>10.0;10.0;250.0;10.0;250.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>610</y>
+      <w>170</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;javaBean&gt;&gt;
+Lion
+--
+
+--
++manger(m:Mangeable)
++dormir()
++crier():String
++sauter()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>610</y>
+      <w>170</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;javaBean&gt;&gt;
+Singe
+--
+
+--
++manger(m:Mangeable)
++dormir()
++crier():String
++sauter()
++courrir()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>600</y>
+      <w>180</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;javaBean&gt;&gt;
+Gazelle
+--
+-leCornes:int
+--
++manger(m:Mangeable)
++dormir()
++courrir()
++toString():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>590</y>
+      <w>30</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>590</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>590</y>
+      <w>170</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>280</y>
+      <w>130</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Mangeable
+--
+
+--
++getPoids():double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>400</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Visiteur
+--
+
+--
++getPoids():double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>350</y>
+      <w>80</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>350</y>
+      <w>120</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>110</x>
+      <y>260</y>
+      <w>260</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>240.0;10.0;80.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>90</x>
+      <y>90</y>
+      <w>280</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+r2=-lesVisiteurs
+m2=0..10</panel_attributes>
+    <additional_attributes>260.0;10.0;80.0;150.0;10.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>350</x>
+      <y>0</y>
+      <w>280</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;singleton&gt;&gt;
+Manager
+--
+
+--
++getAnimaux():List&lt;String&gt;
++nourrir()
+-init()
++devorer(mangeur:int, mange:int):boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>40</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>150</y>
+      <w>410</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;javaBean&gt;&gt;
+Cage
+--
+-ouverte:boolean
+-x
+-y
+--
++entrer(a:Animal) throws CagePleineException, PorteException
++sortir():Animal throws PorteException
++isOuverte()
++ouvrir();
++fermer();
++getOccupant()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>340</y>
+      <w>260</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r2=-occupant
+m2=0..1</panel_attributes>
+    <additional_attributes>240.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+</diagram>
