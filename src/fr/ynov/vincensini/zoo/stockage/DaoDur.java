@@ -9,7 +9,7 @@ import fr.ynov.vincensini.zoo.service.GazellePOJO;
 public class DaoDur implements Dao<CagePOJO> {
 	private List<CagePOJO> elts;
 	private int ids[] = {1,2,3,4};
-	private String noms[]= {"Léo", "Gazz",null,"king Kong"};
+	private String noms[]= {"Lï¿½o", "Gazz",null,"king Kong"};
 	private int x[] = {100,200,134,52};
 	private int y[] = {45,66,56,67};
 	private int ages[] = {12,3,0,300};
@@ -32,7 +32,7 @@ public class DaoDur implements Dao<CagePOJO> {
 			tmp.setPoids(poids[i]);
 			tmp.setX(x[i]);
 			tmp.setY(y[i]);
-			if(tmp.getCodeAnimal().equals("Gazelle")) {
+			if(tmp.getCodeAnimal()!= null && tmp.getCodeAnimal().equals("Gazelle")) {
 				g = new GazellePOJO();
 				g.setId(1);
 				g.setIdAnimal(2);
