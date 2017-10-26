@@ -10,8 +10,10 @@ import java.util.Vector;
 
 import static fr.ynov.guignard.zoo.controller.Manager.mysql;
 
-public class DaoCage implements Serializable {
-    public CagePojo getById(int idCage) throws SQLException {
+public class DaoCage implements Serializable, Dao {
+
+    @Override
+    public CagePojo lire(int idCage) throws SQLException {
         ResultSet res = mysql.select("select * FROM cage WHERE id=" + idCage);
         CagePojo cp = new CagePojo();
         cp.setIdAnimal(res.getInt("idanimal"));
@@ -23,8 +25,8 @@ public class DaoCage implements Serializable {
         cp.setPoids(res.getDouble("poids"));
         return cp;
     }
-
-    public Vector<CagePojo> getAll() throws SQLException {
+    @Override
+    public Vector<CagePojo> lireTous() throws SQLException {
         Vector<CagePojo> vg = new Vector<CagePojo>();
         ResultSet res =  mysql.select("select * FROM cage");
         while(res.next()){
@@ -40,10 +42,18 @@ public class DaoCage implements Serializable {
         }
         return vg;
     }
-    public void delete(CagePojo cage) throws SQLException {
+    @Override
+    public void inserer(CagePojo cage){
+        mysql.select("INSERT INTO cage VALUES WHERE id=" + cage.getIdAnimal());
+    }
+
+    @Override
+    public void effacer(CagePojo cage) throws SQLException {
         mysql.select("delete FROM cage WHERE id=" + cage.getIdAnimal());
     }
-    public void update(CagePojo cage) throws SQLException {
+    @Override
+    public void update(int index, CagePojo cage) throws SQLException {
         mysql.select("update FROM cage WHERE idanimal=" + cage.getIdAnimal());
     }
+
 }

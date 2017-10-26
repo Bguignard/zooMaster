@@ -5,12 +5,15 @@ import java.sql.*;
 public class DaoMysql {
     private static Statement mysqlStatement;
     private static Boolean flag = false;
+    private static final String login = "root";
+    private static final String password = "";
+    private static final String url = "jdbc:mysql://localhost:3306/zoo";
 
     private Statement connect(){
         if (!flag){
             try{
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/zoo");
+                Connection conn = DriverManager.getConnection(url, login, password);
                 flag = true;
                 mysqlStatement = conn.createStatement();
                 return mysqlStatement;
