@@ -1,16 +1,24 @@
 package fr.ynov.vincensini.zoo.service;
-import javax.persistence.*;
+
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 @Entity
-@Table(name="animal")
+@Table(name ="animal")
 public class CagePOJO implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idAnimal;
 	private int x;
 	private int y;
@@ -19,9 +27,8 @@ public class CagePOJO implements Serializable{
 	private int age;
 	private double poids;
 	@OneToOne
-    @JoinColumn(name="idAnimal",referencedColumnName = "idAnimal",updatable = false,insertable=false)
+	@JoinColumn(name="idAnimal",referencedColumnName="idAnimal",updatable=false,insertable=false) 
 	private GazellePOJO gaz;
-
 	public CagePOJO() {
 		// TODO Auto-generated constructor stub
 	}

@@ -3,12 +3,7 @@ package fr.ynov.vincensini.zoo.controleur;
 import java.util.List;
 import java.util.Vector;
 
-import fr.ynov.vincensini.zoo.modele.metier.Animal;
-import fr.ynov.vincensini.zoo.modele.metier.Cage;
-import fr.ynov.vincensini.zoo.modele.metier.Gazelle;
-import fr.ynov.vincensini.zoo.modele.metier.Lion;
 import fr.ynov.vincensini.zoo.modele.metier.Mangeable;
-import fr.ynov.vincensini.zoo.modele.metier.Singe;
 import fr.ynov.vincensini.zoo.modele.metier.Visiteur;
 import fr.ynov.vincensini.zoo.modele.technique.BeurkException;
 import fr.ynov.vincensini.zoo.modele.technique.CageException;
@@ -16,7 +11,6 @@ import fr.ynov.vincensini.zoo.modele.technique.CageManagee;
 import fr.ynov.vincensini.zoo.modele.technique.PorteException;
 import fr.ynov.vincensini.zoo.service.CagePOJO;
 import fr.ynov.vincensini.zoo.stockage.DaoFactory;
-import fr.ynov.vincensini.zoo.utilitaire.Conversion;
 
 public final class Manager {
 	private static Manager instance = new Manager();
@@ -75,7 +69,7 @@ public final class Manager {
 		}
 		else
 		{
-			throw new CageException("La cage N "+mangeur+" est vide!");
+			throw new CageException("La cage N° "+mangeur+" est vide!");
 		}
 	}	
 	

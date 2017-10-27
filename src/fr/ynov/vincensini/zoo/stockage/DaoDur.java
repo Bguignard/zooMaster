@@ -32,7 +32,7 @@ public class DaoDur implements Dao<CagePOJO> {
 			tmp.setPoids(poids[i]);
 			tmp.setX(x[i]);
 			tmp.setY(y[i]);
-			if(tmp.getCodeAnimal()!= null && tmp.getCodeAnimal().equals("Gazelle")) {
+			if((tmp.getCodeAnimal() != null) &&tmp.getCodeAnimal().equals("Gazelle")) {
 				g = new GazellePOJO();
 				g.setId(1);
 				g.setIdAnimal(2);
