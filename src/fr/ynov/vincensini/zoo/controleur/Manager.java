@@ -1,6 +1,7 @@
 package fr.ynov.vincensini.zoo.controleur;
 
 import java.util.List;
+import java.util.Properties;
 import java.util.Vector;
 
 import fr.ynov.vincensini.zoo.modele.metier.Animal;
@@ -15,8 +16,14 @@ import fr.ynov.vincensini.zoo.modele.technique.CageException;
 import fr.ynov.vincensini.zoo.modele.technique.CageManagee;
 import fr.ynov.vincensini.zoo.modele.technique.PorteException;
 import fr.ynov.vincensini.zoo.service.CagePOJO;
+import fr.ynov.vincensini.zoo.stockage.Dao;
 import fr.ynov.vincensini.zoo.stockage.DaoFactory;
 import fr.ynov.vincensini.zoo.utilitaire.Conversion;
+import stockage.DaoRemote;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 public final class Manager {
 	private static Manager instance = new Manager();
@@ -28,6 +35,7 @@ public final class Manager {
 		lesCages = new Vector<>();
 		lesVisiteurs = new Visiteur[10];
 		init();
+		initEJB();
 		
 	}
 	private void init()
@@ -36,6 +44,30 @@ public final class Manager {
 		tmp = DaoFactory.getInstance().getDao().lireTous();
 		for (CagePOJO cp : tmp) {
 			lesCages.add(new CageManagee(cp, DaoFactory.getInstance().getDao()));
+		}
+	}
+	private void initEJB(){
+		List<CagePOJO> tmp = null;
+		InitialContext contextWildFLy = null;
+		Properties env = null;
+		DaoRemote daoLocal = null;
+
+		env.put("jboss.naming.client.ejb.context", true);
+		env.put("INITIAL_CONTEXT_FACTORY", "org.jboss.naming.remote.client.InitialContextFactory");
+		env.put(Context.PROVIDER_URL, "http-remoting://localhost:8080");
+
+		try {
+			contextWildFLy = new InitialContext(env);
+			daoLocal = (DaoRemote) contextWildFLy.lookup("//ferme/DaoJPA!fr.ynov.vencensini.ferme.stockage.DaoRemote");
+
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+
+		tmp = DaoFactory.getInstance().getDao().lireTous();
+
+		for(CagePOJO cp:tmp){
+			lesCages.add(new CageManagee(cp, daoLocal));
 		}
 	}
 	public List<String> getAnimaux()

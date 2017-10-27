@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jboss-cli-client">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Documents/boulot/Master1/cours/JEE/wildfly11/wildfly11/wildfly-11.0.0.CR1/wildfly-11.0.0.CR1/bin/client/jboss-cli-client.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/boulot/Master1/cours/JEE/wildfly11/wildfly11/wildfly-11.0.0.CR1/wildfly-11.0.0.CR1/bin/client/jboss-client.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

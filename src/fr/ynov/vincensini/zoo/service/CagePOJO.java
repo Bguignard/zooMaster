@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="animal")
+@NamedQuery(name = "lireTous", query = "SELECT cp FROM CagePOJO cp")
 public class CagePOJO implements Serializable{
 	/**
 	 * 
