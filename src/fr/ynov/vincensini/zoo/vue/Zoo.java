@@ -17,9 +17,11 @@ public class Zoo {
 	}
 	public void afficher()
 	{
-		for (String s : Manager.getInstance().getAnimaux()) {
-			System.out.println(s);
-		}
+		//JAVA 8
+		Manager.getInstance().getAnimaux().forEach(System.out::println);
+//		for (String s : Manager.getInstance().getAnimaux()) {
+//			System.out.println(s);
+//		}
 	}
 	public void nourrir ()
 	{

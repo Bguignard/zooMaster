@@ -1,15 +1,14 @@
 package fr.ynov.vincensini.zoo.stockage;
 
-import fr.ynov.vincensini.zoo.service.CagePOJO;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class DaoFactory {
+import fr.ynov.vincensini.zoo.service.CagePOJO;
 
-	public final static String FICHIER = "acces.properties";
+public class DaoFactory {
+	public final static String FICHIER="acces.properties";
 	private static DaoFactory instance = new DaoFactory();
 	private DaoFactory() {
 
@@ -17,27 +16,36 @@ public class DaoFactory {
 	public static DaoFactory getInstance() {
 		return instance;
 	}
+	@SuppressWarnings("unchecked")
 	public Dao<CagePOJO> getDao(){
 		Class<?> laClasse = null;
-		try{
+		try {
 			laClasse = Class.forName(getNomDao());
 			return (Dao<CagePOJO>) laClasse.newInstance();
-		}
-		catch(ClassNotFoundException | IllegalAccessException | InstantiationException e){
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		}
+		
 //		return new DaoDur();
-//		return new DaoJDBCImpl();
 		return null;
 	}
-	private String getNomDao(){
+	private String getNomDao()
+	{
 		String ret = "";
-		Properties properties = null;
-		properties = new Properties();
-		try{
-			properties.load(new FileInputStream(FICHIER));
-			ret = properties.getProperty("package")+ properties.getProperty("dao");
+		Properties prop = null;
+		prop = new Properties();
+		try {
+			prop.load(new FileInputStream(FICHIER));
+			ret = prop.getProperty("package")+prop.getProperty("dao");
+		} catch (FileNotFoundException e) {
+			// FIXME Auto-generated catch block
+			e.printStackTrace();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return ret;

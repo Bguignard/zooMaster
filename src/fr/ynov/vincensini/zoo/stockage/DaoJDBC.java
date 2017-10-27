@@ -8,7 +8,7 @@ public abstract class DaoJDBC<T> implements Dao<T> {
 	public final static String DRIVER = "com.mysql.jdbc.Driver";
 	public final static String DEST = "jdbc:mysql://localhost:3306/zoo";
 	public final static String LOGIN = "root";
-	public final static String PSWD = "";
+	public final static String PSWD = "system";
 	 
 	public DaoJDBC()
 	{
